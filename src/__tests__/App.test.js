@@ -60,13 +60,22 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('get list of all events when user selects "See all cities"', async () => {
+  test('The number of events loaded by default is 32', async () => {
     const AppWrapper = mount(<App />);
-    const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
-    await suggestionItems.at(suggestionItems.length - 1).simulate('click');
-    const allEvents = await getEvents();
-    expect(AppWrapper.state('events')).toEqual(allEvents);
+    expect(AppWrapper.state('numberOfEvents')).toBe('32');
     AppWrapper.unmount();
-  });
+  })
+
+  test('When the number of events input field is updated, the number of events displayed updates too', async () => {
+    const AppWrapper = mount(<App />);
+    const numberInput = AppWrapper.find(NumberOfEvents).find('.events-input');
+    const eventObject = { target: { value: '1' } };
+    await numberInput.at(0).simulate('change', eventObject);
+    expect(AppWrapper.state('events')).toHaveLength(1);
+    AppWrapper.update();
+    expect(AppWrapper.find('.event')).toHaveLength(1);
+    expect(AppWrapper.find(EventList).props().events).toHaveLength(1);
+    AppWrapper.unmount();
+  })
 
 });

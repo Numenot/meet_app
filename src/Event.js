@@ -28,8 +28,8 @@ class Event extends Component {
           {event.summary} | {event.location}
         </div>
         <button
-          className={`${collapsed ? "show" : "hide"}-details`}
-          onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide-Details"}
+          className={`details-btn ${collapsed ? "show" : "hide"}-details`}
+          onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide Details"}
         </button>
 
         {!collapsed && (

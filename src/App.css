@@ -233,7 +233,6 @@ input[type="number"] {
 
 @media (max-width: 870px) {
   .EventList {
-    background-color: red;
     display: flex;
     flex-direction: column;
   }

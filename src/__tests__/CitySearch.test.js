@@ -66,6 +66,16 @@ describe('<CitySearch /> component', () => {
     expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
   });
 
+  test("selecting see all should change query state", () => {
+    CitySearchWrapper.setState({
+      query: 'all'
+    });
+    const suggestions = CitySearchWrapper.state('suggestions');
+    CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+    expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+  });
+
+
   test("selecting CitySearch input reveals the suggestions list", () => {
     CitySearchWrapper.find('.city').simulate('focus');
     expect(CitySearchWrapper.state('showSuggestions')).toBe(true);

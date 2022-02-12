@@ -76,8 +76,15 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.EventList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
 .event {
-  padding: 10px 10px 35px;
+  padding: 2rem;
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
@@ -93,11 +100,30 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  background: #87c3c7;
+  background-image: linear-gradient(90deg, #f7fcf0, #e5f5df, #d4eece, #bde5bf);
 }
 
-.name {
+.details-btn:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.05);
+}
+
+.event_name {
   font-size: 18px;
   font-weight: 600;
+}
+
+.event_location {
+  font-style: italic;
+}
+
+.details-view{
+  margin-top: 1rem;
+}
+
+.details-header{
+  font-weight: bold;
 }
 
 .group-name {
@@ -209,5 +235,13 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 870px) {
+  .EventList {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
   }
 }

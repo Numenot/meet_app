@@ -25,7 +25,7 @@ class Event extends Component {
           {event.start.dateTime} ({event.start.timeZone})
         </div>
         <div className='event_location'>
-          {event.summary} | {event.location}
+          @{event.summary} | {event.location}
         </div>
         <button
           className={`details-btn ${collapsed ? "show" : "hide"}-details`}

@@ -28,7 +28,7 @@ class InfoAlert extends Alert {
   }
 }
 
-class ErrorAlert extends Component {
+class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'red';

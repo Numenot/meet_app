@@ -5,6 +5,7 @@ import EventList from './EventList';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
+import { OfflineWarningAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -24,6 +25,15 @@ class App extends Component {
         });
       }
     });
+    if (!navigator.onLine) {
+      this.setState({
+        OfflineWarningAlertText: 'You are not currently online, the events information displayed might not be up to date'
+      });
+    } else {
+      this.setState({
+        OfflineWarningAlertText: ''
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -52,9 +62,10 @@ class App extends Component {
   };
 
   render() {
-    const { events, locations, numberOfEvents } = this.state;
+    const { events, locations, numberOfEvents, OfflineWarningAlertText } = this.state;
     return (
       <div className="App">
+        <OfflineWarningAlert text={OfflineWarningAlertText} />
         <h1>Welcome to Meet</h1>
         <h4>Select a city near you:</h4>
         <CitySearch locations={locations} updateEvents={this.updateEvents} />

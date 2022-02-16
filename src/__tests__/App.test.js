@@ -96,4 +96,24 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   })
 
+  test('When the number of events is set to a number below 1, an error alert is displayed', async () => {
+    const AppWrapper = mount(<App />);
+    const numberInput = AppWrapper.find(NumberOfEvents).find('.events-input');
+    const eventObject = { target: { value: '0' } };
+    numberInput.at(0).simulate('change', eventObject);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    expect(NumberOfEventsWrapper.state('errorText')).toBe('Please select a number between 1 and 32');
+    AppWrapper.unmount();
+  })
+
+  test('When the number of events is set to a number above 32, an error alert is displayed', async () => {
+    const AppWrapper = mount(<App />);
+    const numberInput = AppWrapper.find(NumberOfEvents).find('.events-input');
+    const eventObject = { target: { value: '33' } };
+    numberInput.at(0).simulate('change', eventObject);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    expect(NumberOfEventsWrapper.state('errorText')).toBe('Please select a number between 1 and 32');
+    AppWrapper.unmount();
+  })
+
 });

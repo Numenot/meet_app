@@ -12,7 +12,8 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: '32',
-    location: 'all'
+    location: 'all',
+    OfflineWarningAlertText: ''
   }
 
   componentDidMount() {

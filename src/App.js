@@ -79,13 +79,16 @@ class App extends Component {
     return (
       <div className="App">
         <OfflineWarningAlert text={OfflineWarningAlertText} />
-        <h1>Welcome to Meet</h1>
-        <h4>Select a city near you:</h4>
-        <CitySearch locations={locations} updateEvents={this.updateEvents} />
-        <br />
-        <NumberOfEvents numberOfEvents={numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
+        <div className="meet-header">
+          <h1>Welcome to Meet</h1>
+          <h4>Select a city near you:</h4>
+          <CitySearch locations={locations} updateEvents={this.updateEvents} />
+          <br />
+          <NumberOfEvents numberOfEvents={numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
+          <br />
+        </div>
+        <h4> Breakdown of future events:</h4>
         <div className="data-vis-wrapper">
-          <EventGenre events={events} />
           <ResponsiveContainer height={400} >
             <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid />
@@ -95,6 +98,7 @@ class App extends Component {
               <Scatter data={this.getData()} fill="#8884d8" />
             </ScatterChart>
           </ResponsiveContainer>
+          <EventGenre events={events} />
         </div>
         <EventList events={events} />
       </div >

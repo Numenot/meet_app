@@ -18,16 +18,14 @@ const EventGenre = ({ events }) => {
   }, [events]);
 
   const [data, setData] = useState([]);
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8A2BE2'];
+  const COLORS = ['#0088FE', '#00C49F', '#A52A2A', '#FF8042', '#8A2BE2'];
 
   return (
     <ResponsiveContainer height={400} >
       <PieChart>
         <Pie
           data={data}
-          cx={150}
-          cy={150}
-          labelLine={true}
+          labelLine={false}
           outerRadius={80}
           fill="#8884d8"
           dataKey="value"
@@ -37,12 +35,7 @@ const EventGenre = ({ events }) => {
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
-        <Legend
-          layout='horizontal'
-          verticalAlign='bottom'
-          align='center'
-          height={100}
-        />
+        <Legend />
       </PieChart>
     </ResponsiveContainer >
   )

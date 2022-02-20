@@ -2,6 +2,12 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: #e1e9f4;
+}
+
+.meet-header {
+  background-image: url("./nyc-skyline-header.png");
+  background-size: 600px;
 }
 
 .App * {
@@ -34,6 +40,11 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+}
+
+.event-number-label {
+  color: white;
+  font-weight: bold;
 }
 
 .city {
@@ -83,6 +94,11 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  color: black;
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  min-width: 550px;
 }
 
 .details-btn {
@@ -93,8 +109,7 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  background: #87c3c7;
-  background-image: linear-gradient(90deg, #f7fcf0, #e5f5df, #d4eece, #bde5bf);
+  background-color: #e1e9f4;
 }
 
 .details-btn:hover {
@@ -113,6 +128,7 @@ input[type="number"] {
 
 .details-view{
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .details-header{
@@ -212,7 +228,15 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
+.recharts-legend-wrapper {
+  margin-bottom: 2rem;
+}
 
+.EventList{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
@@ -226,7 +250,21 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 870px) {
+@media (max-width: 1250px) {
+  .EventList {
+    display: flex;
+    flex-direction: column;
+  }
+  .event{
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .meet-header {
+    background-image: url("./nyc-skyline-header.png");
+    background-size: 700px;
+  }
   .EventList {
     display: flex;
     flex-direction: column;

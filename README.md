@@ -1,7 +1,6 @@
 # meet_app
-Serverless, progressive web application (PWA) with React using a test-driven
-development (TDD) technique. The application uses the Google Calendar API to fetch
-upcoming events.
+- Serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
+- Live site: https://numenot.github.io/meet_app/
 
 # Key Features
 - Filter events by city.
@@ -37,4 +36,12 @@ that I know what events are organized in which city.
 - Run npm start
 - Server should be running at http://localhost:3000
 
-Live site: https://numenot.github.io/meet_app/
+# Screenshots
+
+## Desktop
+
+![Screenshot](./img/Meet.png)
+
+## Mobile
+
+![Screenshot](./img/Meet-mobile.png)
